@@ -12,15 +12,13 @@ const inputString: string = sorting("melon");
 
 app.get("/", (req, res) => {
   const wordListLenght = words.length;
-  // res.send(`<b>${words}</b>`);
+  const matchedWords: string[] = [];
   for (let i = 0; i < wordListLenght; i++) {
     if (inputString === sorting(words[i])) {
-      res.send(`<br>${words[i]}`);
+      matchedWords.push(words[i]);
     }
-    //throw new Error("Do not match!");
-    //res.send(`<b>${words}</b>`);
-    console.log(sorting(words[i]));
   }
+  res.send(matchedWords);
 });
 
 app.listen(port, () => {
