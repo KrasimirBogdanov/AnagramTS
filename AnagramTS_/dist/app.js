@@ -8,7 +8,10 @@ const WordList_json_1 = __importDefault(require("./WordList.json"));
 const app = (0, express_1.default)();
 const port = 3000;
 app.get("/", (req, res) => {
-    res.send(`<b>${WordList_json_1.default}</b>`);
+    const wordListLenght = WordList_json_1.default.length;
+    // res.send(`<b>${words}</b>`);
+    // res.send("I'm trying to pass some news into browser here!");
+    res.send(`<br>${wordListLenght}`);
 });
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);

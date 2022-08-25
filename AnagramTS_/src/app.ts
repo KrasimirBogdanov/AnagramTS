@@ -3,8 +3,14 @@ import words from "./WordList.json";
 const app = express();
 const port = 3000;
 
+let inputString: string;
+let inputStringLength: number;
+
+
 app.get("/", (req, res) => {
-  res.send(`<b>${words}</b>`);
+  const wordListLenght = words.length;
+ // res.send(`<b>${words}</b>`);
+  res.send(`<br>${wordListLenght}`);
 });
 
 app.listen(port, () => {
