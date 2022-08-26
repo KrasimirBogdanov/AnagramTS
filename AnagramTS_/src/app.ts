@@ -21,6 +21,9 @@ function fillMatchedWords() {
     } else
       for (let j = 0; j < wordListLength; j++) {
         const nextWordOfListLength: number = words[j].length;
+        /*console.log(
+          "NextWordOfList: " + "i:" + i + " j:" + j + " is " + words[j]
+        );*/
         const concatenatedWordsLength: number =
           words[i].length + nextWordOfListLength;
         if (inputStringLength !== concatenatedWordsLength) continue;
