@@ -15,7 +15,6 @@ function fillMatchedWords() {
     const inputStringLength = inputString.length;
     const wordListLength = WordList_json_1.default.length;
     const matchedWordsList = [];
-    console.log(wordListLength);
     for (let i = 0; i < wordListLength; i++) {
         if (inputStringLength === WordList_json_1.default[i].length) {
             if (inputString !== sorting(WordList_json_1.default[i]))
@@ -24,11 +23,11 @@ function fillMatchedWords() {
         }
         else
             for (let j = 0; j < wordListLength; j++) {
-                let nextWordOfListLength = WordList_json_1.default[j].length;
-                let concatenatedWordsLength = WordList_json_1.default[i].length + nextWordOfListLength;
+                const nextWordOfListLength = WordList_json_1.default[j].length;
+                const concatenatedWordsLength = WordList_json_1.default[i].length + nextWordOfListLength;
                 if (inputStringLength !== concatenatedWordsLength)
                     continue;
-                let concatenatedWordsSorted = sorting(WordList_json_1.default[i] + WordList_json_1.default[j]);
+                const concatenatedWordsSorted = sorting(WordList_json_1.default[i] + WordList_json_1.default[j]);
                 if (inputString !== concatenatedWordsSorted)
                     continue;
                 matchedWordsList.push(WordList_json_1.default[i] + " + " + WordList_json_1.default[j]);
@@ -37,7 +36,7 @@ function fillMatchedWords() {
     return matchedWordsList;
 }
 app.get("/", (req, res) => {
-    res.send(fillMatchedWords());
+    res.send(`${fillMatchedWords()}`);
 });
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);

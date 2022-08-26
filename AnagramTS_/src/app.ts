@@ -13,18 +13,18 @@ function fillMatchedWords() {
 
   const wordListLength = words.length;
   const matchedWordsList: string[] = [];
-  console.log(wordListLength);
+
   for (let i = 0; i < wordListLength; i++) {
     if (inputStringLength === words[i].length) {
       if (inputString !== sorting(words[i])) continue;
       matchedWordsList.push(words[i]);
     } else
       for (let j = 0; j < wordListLength; j++) {
-        let nextWordOfListLength: number = words[j].length;
-        let concatenatedWordsLength: number =
+        const nextWordOfListLength: number = words[j].length;
+        const concatenatedWordsLength: number =
           words[i].length + nextWordOfListLength;
         if (inputStringLength !== concatenatedWordsLength) continue;
-        let concatenatedWordsSorted: string = sorting(words[i] + words[j]);
+        const concatenatedWordsSorted: string = sorting(words[i] + words[j]);
         if (inputString !== concatenatedWordsSorted) continue;
         matchedWordsList.push(words[i] + " + " + words[j]);
       }
@@ -33,7 +33,7 @@ function fillMatchedWords() {
 }
 
 app.get("/", (req, res) => {
-  res.send(fillMatchedWords());
+  res.send(`${fillMatchedWords()}`);
 });
 
 app.listen(port, () => {
