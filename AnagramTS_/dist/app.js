@@ -13,15 +13,26 @@ const sorting = (stringg) => {
 function fillMatchedWords() {
     const inputString = sorting("melon");
     const inputStringLength = inputString.length;
-    const wordListLenght = WordList_json_1.default.length;
+    const wordListLength = WordList_json_1.default.length;
     const matchedWordsList = [];
-    for (let i = 0; i < wordListLenght; i++) {
+    console.log(wordListLength);
+    for (let i = 0; i < wordListLength; i++) {
         if (inputStringLength === WordList_json_1.default[i].length) {
             if (inputString !== sorting(WordList_json_1.default[i]))
                 continue;
             matchedWordsList.push(WordList_json_1.default[i]);
         }
-        console.log(WordList_json_1.default[i]);
+        else
+            for (let j = 0; j < wordListLength; j++) {
+                let nextWordOfListLength = WordList_json_1.default[j].length;
+                let concatenatedWordsLength = WordList_json_1.default[i].length + nextWordOfListLength;
+                if (inputStringLength !== concatenatedWordsLength)
+                    continue;
+                let concatenatedWordsSorted = sorting(WordList_json_1.default[i] + WordList_json_1.default[j]);
+                if (inputString !== concatenatedWordsSorted)
+                    continue;
+                matchedWordsList.push(WordList_json_1.default[i] + " + " + WordList_json_1.default[j]);
+            }
     }
     return matchedWordsList;
 }
