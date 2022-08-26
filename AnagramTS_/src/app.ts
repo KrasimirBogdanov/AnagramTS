@@ -7,22 +7,24 @@ const sorting = (stringg) => {
   return stringg.split("").sort().join("");
 };
 
-const inputString: string = sorting("melon");
-//let inputStringLength: number = inputString.length;
+function fillMatchedWords() {
+  const inputString: string = sorting("melon");
+  const inputStringLength: number = inputString.length;
 
-function matchingOneWord() {
-  const wordListLenght = words.length;
-  const matchedWords: string[] = [];
-  for (let i = 0; i < wordListLenght; i++) {
-    if (inputString === sorting(words[i])) {
-      matchedWords.push(words[i]);
+  const wordListLength = words.length;
+  const matchedWordsList: string[] = [];
+
+  for (let i = 0; i < wordListLength; i++) {
+    if (inputStringLength === words[i].length) {
+      if (inputString !== sorting(words[i])) continue;
+      matchedWordsList.push(words[i]);
     }
   }
-  return matchedWords;
+  return matchedWordsList;
 }
 
 app.get("/", (req, res) => {
-  res.send(matchingOneWord());
+  res.send(fillMatchedWords());
 });
 
 app.listen(port, () => {

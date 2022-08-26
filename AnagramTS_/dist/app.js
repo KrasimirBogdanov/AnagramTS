@@ -10,20 +10,23 @@ const port = 3000;
 const sorting = (stringg) => {
     return stringg.split("").sort().join("");
 };
-const inputString = sorting("melon");
-//let inputStringLength: number = inputString.length;
-function matchingOneWord() {
+function fillMatchedWords() {
+    const inputString = sorting("melon");
+    const inputStringLength = inputString.length;
     const wordListLenght = WordList_json_1.default.length;
-    const matchedWords = [];
+    const matchedWordsList = [];
     for (let i = 0; i < wordListLenght; i++) {
-        if (inputString === sorting(WordList_json_1.default[i])) {
-            matchedWords.push(WordList_json_1.default[i]);
+        if (inputStringLength === WordList_json_1.default[i].length) {
+            if (inputString !== sorting(WordList_json_1.default[i]))
+                continue;
+            matchedWordsList.push(WordList_json_1.default[i]);
         }
+        console.log(WordList_json_1.default[i]);
     }
-    return matchedWords;
+    return matchedWordsList;
 }
 app.get("/", (req, res) => {
-    res.send(matchingOneWord());
+    res.send(fillMatchedWords());
 });
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
