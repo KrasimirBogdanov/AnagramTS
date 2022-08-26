@@ -16,8 +16,8 @@ function fillMatchedWords() {
 
   for (let i = 0; i < wordListLength; i++) {
     console.log("I:"+i);
-    if (inputStringLength === words[i].length) {
-      if (inputString !== sorting(words[i])) continue;
+    if (inputStringLength == words[i].length) {
+      if (inputString != sorting(words[i])) continue;
       matchedWordsList.push(words[i]);
     } else
       for (let j = 0; j < wordListLength; j++) {
@@ -27,9 +27,9 @@ function fillMatchedWords() {
         );
         const concatenatedWordsLength: number =
           words[i].length + nextWordOfListLength;
-        if (inputStringLength !== concatenatedWordsLength) continue;
+        if (inputStringLength != concatenatedWordsLength) continue;
         const concatenatedWordsSorted: string = sorting(words[i] + words[j]);
-        if (inputString !== concatenatedWordsSorted) continue;
+        if (inputString != concatenatedWordsSorted) continue;
         matchedWordsList.push(words[i] + " + " + words[j]);
       }
   }

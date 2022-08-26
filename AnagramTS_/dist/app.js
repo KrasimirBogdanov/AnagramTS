@@ -17,8 +17,8 @@ function fillMatchedWords() {
     const matchedWordsList = [];
     for (let i = 0; i < wordListLength; i++) {
         console.log("I:" + i);
-        if (inputStringLength === WordList_json_1.default[i].length) {
-            if (inputString !== sorting(WordList_json_1.default[i]))
+        if (inputStringLength == WordList_json_1.default[i].length) {
+            if (inputString != sorting(WordList_json_1.default[i]))
                 continue;
             matchedWordsList.push(WordList_json_1.default[i]);
         }
@@ -27,10 +27,10 @@ function fillMatchedWords() {
                 const nextWordOfListLength = WordList_json_1.default[j].length;
                 console.log("NextWordOfList: " + "i:" + i + " j:" + j + " is " + WordList_json_1.default[j]);
                 const concatenatedWordsLength = WordList_json_1.default[i].length + nextWordOfListLength;
-                if (inputStringLength !== concatenatedWordsLength)
+                if (inputStringLength != concatenatedWordsLength)
                     continue;
                 const concatenatedWordsSorted = sorting(WordList_json_1.default[i] + WordList_json_1.default[j]);
-                if (inputString !== concatenatedWordsSorted)
+                if (inputString != concatenatedWordsSorted)
                     continue;
                 matchedWordsList.push(WordList_json_1.default[i] + " + " + WordList_json_1.default[j]);
             }
