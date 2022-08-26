@@ -12,17 +12,18 @@ const sorting = (stringg) => {
 };
 const inputString = sorting("melon");
 //let inputStringLength: number = inputString.length;
-app.get("/", (req, res) => {
+function matchingOneWord() {
     const wordListLenght = WordList_json_1.default.length;
     const matchedWords = [];
     for (let i = 0; i < wordListLenght; i++) {
         if (inputString === sorting(WordList_json_1.default[i])) {
             matchedWords.push(WordList_json_1.default[i]);
         }
-        //console.log("Matched word is: " + words[i]);
-        //console.log(sorting(words[i]));
     }
-    res.send(matchedWords);
+    return matchedWords;
+}
+app.get("/", (req, res) => {
+    res.send(matchingOneWord());
 });
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);

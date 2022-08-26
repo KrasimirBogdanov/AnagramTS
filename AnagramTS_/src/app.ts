@@ -10,7 +10,7 @@ const sorting = (stringg) => {
 const inputString: string = sorting("melon");
 //let inputStringLength: number = inputString.length;
 
-app.get("/", (req, res) => {
+function matchingOneWord() {
   const wordListLenght = words.length;
   const matchedWords: string[] = [];
   for (let i = 0; i < wordListLenght; i++) {
@@ -18,7 +18,11 @@ app.get("/", (req, res) => {
       matchedWords.push(words[i]);
     }
   }
-  res.send(matchedWords);
+  return matchedWords;
+}
+
+app.get("/", (req, res) => {
+  res.send(matchingOneWord());
 });
 
 app.listen(port, () => {
