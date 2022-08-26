@@ -11,19 +11,20 @@ function fillMatchedWords() {
   const inputString: string = sorting("melon");
   const inputStringLength: number = inputString.length;
 
-  const wordListLength = words.length;
+  const wordListLength:number = words.length;
   const matchedWordsList: string[] = [];
 
   for (let i = 0; i < wordListLength; i++) {
+    console.log("I:"+i);
     if (inputStringLength === words[i].length) {
       if (inputString !== sorting(words[i])) continue;
       matchedWordsList.push(words[i]);
     } else
       for (let j = 0; j < wordListLength; j++) {
         const nextWordOfListLength: number = words[j].length;
-        /*console.log(
+        console.log(
           "NextWordOfList: " + "i:" + i + " j:" + j + " is " + words[j]
-        );*/
+        );
         const concatenatedWordsLength: number =
           words[i].length + nextWordOfListLength;
         if (inputStringLength !== concatenatedWordsLength) continue;
