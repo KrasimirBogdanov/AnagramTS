@@ -1,7 +1,7 @@
-import express from "express";
+//import express from "express";
 import words from "./WordList.json";
-const app = express();
-const port = 3000;
+//const app = express();
+//const port = 3000;
 
 const sorting = (stringg) => {
   return stringg.split("").sort().join("");
@@ -36,11 +36,15 @@ export function fillMatchedWords() {
  // console.log("Number of matched words are: " + matchedWordsList.length);
   return matchedWordsList;
 }
-
+console.log("Matched words are: " + fillMatchedWords());
+/*
 app.get("/", (req, res) => {
+  console.log(fillMatchedWords);
   res.send(`${fillMatchedWords()}`);
 });
+
 
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);
 });
+*/
