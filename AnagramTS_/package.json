@@ -2,9 +2,9 @@
   "name": "anagramts_",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/app.js",
+  "main": "dist/anagram.js",
   "scripts": {
-    "start": "tsc && node dist/src/app.js",
+    "start": "tsc && node dist/anagram.js",
     "lint": "eslint . --ext .ts",
     "test": "jest"
   },

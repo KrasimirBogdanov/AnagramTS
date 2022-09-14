@@ -39,7 +39,6 @@ export function fillMatchedWords() {
 console.log("Matched words are: " + fillMatchedWords());
 /*
 app.get("/", (req, res) => {
-  console.log(fillMatchedWords);
   res.send(`${fillMatchedWords()}`);
 });
 
