@@ -1,7 +1,7 @@
-import { add } from '../src/tryingTEST';
+import { fillMatchedWords } from '../src/app';
  
-describe('testing index file', () => {
-  test('empty string should result in zero', () => {
-    expect(add('')).toBe(0);
+describe('testing anagram', () => {
+  test('inputed word "melon" should matched 4 words', () => {
+    expect(fillMatchedWords().length).toBe(4);
   });
 });
