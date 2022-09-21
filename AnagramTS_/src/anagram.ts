@@ -1,7 +1,7 @@
-import express from "express";
+//import express from "express";
 import words from "./WordList.json";
-const app = express();
-const port = 3000;
+//const app = express();
+//const port = 3000;
 
 const sorting = (stringg) => {
   return stringg.split("").sort().join("");
@@ -11,11 +11,11 @@ export function fillMatchedWords() {
   const inputString: string = sorting("melon");
   const inputStringLength: number = inputString.length;
 
-  const wordListLength:number = words.length;
+  const wordListLength: number = words.length;
   const matchedWordsList: string[] = [];
 
   for (let i = 0; i < wordListLength; i++) {
-   // console.log("I:"+i);
+    // console.log("I:"+i);
     if (inputStringLength == words[i].length) {
       if (inputString != sorting(words[i])) continue;
       matchedWordsList.push(words[i]);
@@ -33,16 +33,16 @@ export function fillMatchedWords() {
         matchedWordsList.push(words[i] + " + " + words[j]);
       }
   }
- // console.log("Number of matched words are: " + matchedWordsList.length);
+  // console.log("Number of matched words are: " + matchedWordsList.length);
   return matchedWordsList;
 }
 console.log("Matched words are: " + fillMatchedWords());
-
+/*
 app.get("/", (req, res) => {
   res.send(`${fillMatchedWords()}`);
 });
-
-
-app.listen(port, () => {
+ 
+app.listen(port, async () => {
   return console.log(`Express is listening at http://localhost:${port}`);
 });
+*/
