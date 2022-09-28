@@ -16,16 +16,17 @@ export function checkIsFirstWordAnagram() {
     }
     checkIsSecondWordAnagram(word);
   }
- function checkIsSecondWordAnagram(firstWord: string) {
-    for (const scdWord of words) {
-      const concatenatedWordsLength: number = firstWord.length + scdWord.length;
-      if (inputStringLength != concatenatedWordsLength) continue;
-      const concatenatedWordsSorted: string = sorting(firstWord + scdWord);
-      if (inputString != concatenatedWordsSorted) continue;
-      matchedWordsList.push(firstWord + " + " + scdWord);
-    }
-  }
-
   return matchedWordsList;
 }
+
+export function checkIsSecondWordAnagram(firstWord: string) {
+  for (const scdWord of words) {
+    const concatenatedWordsLength: number = firstWord.length + scdWord.length;
+    if (inputStringLength != concatenatedWordsLength) continue;
+    const concatenatedWordsSorted: string = sorting(firstWord + scdWord);
+    if (inputString != concatenatedWordsSorted) continue;
+    matchedWordsList.push(firstWord + " + " + scdWord);
+  }
+}
+
 console.log("Matched words are: " + checkIsFirstWordAnagram());
