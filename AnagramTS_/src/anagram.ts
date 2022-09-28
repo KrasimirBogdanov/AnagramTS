@@ -1,7 +1,7 @@
 import words from "./WordList.json";
 
-const sorting = (stringg: string) => {
-  return stringg.split("").sort().join("");
+const sorting = (stringToSort: string) => {
+  return stringToSort.split("").sort().join("");
 };
 
 const inputString: string = sorting("melon");
@@ -22,9 +22,9 @@ export function checkIsFirstWordAnagram() {
 export function checkIsSecondWordAnagram(firstWord: string) {
   words.forEach((scdWord) => {
     const concatenatedWordsLength: number = firstWord.length + scdWord.length;
-    if (inputStringLength != concatenatedWordsLength) return;
+    if (inputStringLength !== concatenatedWordsLength) return;
     const concatenatedWordsSorted: string = sorting(firstWord + scdWord);
-    if (inputString != concatenatedWordsSorted) return;
+    if (inputString !== concatenatedWordsSorted) return;
     matchedWordsList.push(firstWord + " + " + scdWord);
   });
 }
