@@ -9,24 +9,24 @@ const inputStringLength: number = inputString.length;
 const matchedWordsList: string[] = [];
 
 export function checkIsFirstWordAnagram() {
-  for (const word of words) {
+  words.forEach((word) => {
     if (inputStringLength === word.length) {
-      if (inputString !== sorting(word)) continue;
+      if (inputString !== sorting(word)) return;
       matchedWordsList.push(word);
     }
     checkIsSecondWordAnagram(word);
-  }
+  });
   return matchedWordsList;
 }
 
 export function checkIsSecondWordAnagram(firstWord: string) {
-  for (const scdWord of words) {
+  words.forEach((scdWord) => {
     const concatenatedWordsLength: number = firstWord.length + scdWord.length;
-    if (inputStringLength != concatenatedWordsLength) continue;
+    if (inputStringLength != concatenatedWordsLength) return;
     const concatenatedWordsSorted: string = sorting(firstWord + scdWord);
-    if (inputString != concatenatedWordsSorted) continue;
+    if (inputString != concatenatedWordsSorted) return;
     matchedWordsList.push(firstWord + " + " + scdWord);
-  }
+  });
 }
 
 console.log("Matched words are: " + checkIsFirstWordAnagram());
