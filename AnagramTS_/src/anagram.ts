@@ -1,32 +1,46 @@
 import words from "./WordList.json";
+export { wordToCheck };
 
-const sorting = (stringToSort: string) => {
-  return stringToSort.split("").sort().join("");
-};
+class Anagram {
+  private inputString: string;
+  private inputedSortedString: string;
+  private matchedWordsList: string[] = [];
 
-const inputString: string = sorting("melon");
-const inputStringLength: number = inputString.length;
-const matchedWordsList: string[] = [];
+  constructor(inputedString: string) {
+    this.inputString = inputedString;
+    this.inputedSortedString = this.sorting(this.inputString);
+  }
 
-export function checkIsFirstWordAnagram() {
-  words.forEach((word) => {
-    if (inputStringLength === word.length) {
-      if (inputString !== sorting(word)) return;
-      matchedWordsList.push(word);
-    }
-    checkIsSecondWordAnagram(word);
-  });
-  return matchedWordsList;
+  sorting = (stringToSort: string) => {
+    return stringToSort.split("").sort().join("");
+  };
+
+  checkIsFirstWordAnagram() {
+    words.forEach((firstWord) => {
+      if (this.inputedSortedString.length === firstWord.length) {
+        if (this.inputedSortedString !== this.sorting(firstWord)) return;
+        this.matchedWordsList.push(firstWord);
+      }
+      this.checkIsSecondWordAnagram(firstWord);
+    });
+    return this.matchedWordsList;
+  }
+
+  checkIsSecondWordAnagram(firstWord: string) {
+    words.forEach((secondWord) => {
+      const concatenatedWordsLength: number =
+        firstWord.length + secondWord.length;
+      if (this.inputedSortedString.length !== concatenatedWordsLength) return;
+      const concatenatedWordsSorted: string = this.sorting(
+        firstWord + secondWord
+      );
+      if (this.inputedSortedString !== concatenatedWordsSorted) return;
+      this.matchedWordsList.push(firstWord + " + " + secondWord);
+    });
+  }
 }
+const wordToCheck = new Anagram("melon");
 
-export function checkIsSecondWordAnagram(firstWord: string) {
-  words.forEach((scdWord) => {
-    const concatenatedWordsLength: number = firstWord.length + scdWord.length;
-    if (inputStringLength !== concatenatedWordsLength) return;
-    const concatenatedWordsSorted: string = sorting(firstWord + scdWord);
-    if (inputString !== concatenatedWordsSorted) return;
-    matchedWordsList.push(firstWord + " + " + scdWord);
-  });
-}
-
-console.log("Matched words are: " + checkIsFirstWordAnagram());
+console.log(
+  "Matched words of wordToCheck are: " + wordToCheck.checkIsFirstWordAnagram()
+);
