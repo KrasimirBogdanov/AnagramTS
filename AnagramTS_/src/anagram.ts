@@ -18,9 +18,9 @@ export class Anagram {
     words.forEach((firstWord) => {
       if (this.inputedSortedString.length === firstWord.length) {
         if (this.inputedSortedString !== this.sorting(firstWord)) return;
-        this.matchedWordsList.push(firstWord);
+        this.matchedWordsList.push(firstWord); return;
       }
-      this.checkIsSecondWordAnagram(firstWord);
+      this.checkIsSecondWordAnagram(firstWord); 
     });
     return this.matchedWordsList;
   }
