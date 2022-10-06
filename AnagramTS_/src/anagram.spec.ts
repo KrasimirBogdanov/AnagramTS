@@ -1,4 +1,4 @@
-import { wordToCheck } from "./anagram";
+import { wordToCheck } from "./app";
 
 describe("testing anagram", () => {
   test('inputed word "melon" should matched 4 words ', () => {
