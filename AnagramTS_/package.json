@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/anagram.js",
   "scripts": {
-    "start": "tsc && node dist/anagram.js",
+    "start": "tsc && node dist/app.js",
     "lint": "eslint . --ext .ts",
     "test": "jest"
   },

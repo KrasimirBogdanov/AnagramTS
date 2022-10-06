@@ -1,7 +1,6 @@
 import words from "./WordList.json";
-export { wordToCheck };
 
-class Anagram {
+export class Anagram {
   private inputString: string;
   private inputedSortedString: string;
   private matchedWordsList: string[] = [];
@@ -39,8 +38,3 @@ class Anagram {
     });
   }
 }
-const wordToCheck = new Anagram("melon");
-
-console.log(
-  "Matched words of wordToCheck are: " + wordToCheck.checkIsFirstWordAnagram()
-);
