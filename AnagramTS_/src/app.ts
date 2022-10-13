@@ -1,8 +1,8 @@
 import { Anagram } from "./anagram";
-export { wordToCheck };
 
 const wordToCheck = new Anagram("melon");
+export const result = wordToCheck.checkIsFirstWordAnagram();
 
 console.log(
-  "Matched words are: " + wordToCheck.checkIsFirstWordAnagram()
+  "Matched words are: " + result
 );
