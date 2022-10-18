@@ -1,12 +1,8 @@
-import express from "express";
-import words from "./WordList.json";
-const app = express();
-const port = 3000;
+import { Anagram } from "./anagram";
 
-app.get("/", (req, res) => {
-  res.send(`<b>${words}</b>`);
-});
+const wordToCheck = new Anagram("melon");
+export const result = wordToCheck.checkIsFirstWordAnagram();
 
-app.listen(port, () => {
-  return console.log(`Express is listening at http://localhost:${port}`);
-});
+console.log(
+  "Matched words are: " + result
+);
